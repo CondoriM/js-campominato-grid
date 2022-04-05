@@ -31,6 +31,7 @@ function startGame(event){
     }
 
     grid_case(cells_num,cols_num)
+    click_case('.cell','selected')
 }
 
 function grid_case(cells_num, cols_num) {
@@ -49,4 +50,20 @@ function grid_case(cells_num, cols_num) {
       gameAreaElement.append(cell);  
     }  
 }
+
+function click_case(css_selector, css_class) {
+
+    const cells = document.querySelectorAll(css_selector)
+    
+    for (let i = 0; i < cells.length; i++) {
+      const cellElemnt = cells[i];
+      
+      cellElemnt.addEventListener('click', function () {
+        console.log(this);
+        
+        this.classList.add(css_class)
+      });
   
+    }
+  
+  }
